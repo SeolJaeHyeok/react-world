@@ -29,7 +29,8 @@
     "scripts": {
         "sdk": "yarn dlx @yarnpkg/sdks vscode",
         "client": "yarn workspace client",
-        "server": "yarn workspace server"
+        "server": "yarn workspace server",
+        "ui": "yarn workspace @ui/atoms"
     },
     "workspaces": [
         "apps/*",
