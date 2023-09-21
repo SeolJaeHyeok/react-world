@@ -8,6 +8,7 @@ import { Hydrate } from '@tanstack/react-query';
 import getQueryClient from 'config/react-query/get-query-client';
 import { articleKeys } from 'config/react-query/query-key-factory';
 import { request } from 'graphql-request';
+import { Button } from '@ui/atoms';
 
 export default async function Page() {
     const queryClient = getQueryClient();
@@ -29,6 +30,7 @@ export default async function Page() {
 
     return (
         <Hydrate state={dehydratedState}>
+            <Button>Sign in</Button>
             <TestComponent />
         </Hydrate>
     );
