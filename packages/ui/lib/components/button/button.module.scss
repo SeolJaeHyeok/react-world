@@ -1,0 +1,232 @@
+@import '../../scss/styles.scss';
+
+.wrap {
+    @include clear;
+
+    cursor: pointer;
+    position: relative;
+    color: $color-light;
+    border: 0 none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 2rem;
+    box-shadow: 0 0 12px -2px rgba(0, 0, 0, 50%);
+    transition: opacity 0.2s ease-in-out;
+    background: lighten($success-color, 15%);
+
+    &::before {
+        content: '';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.25rem;
+        background: lighten($success-color, 5%);
+        transition: all 0.3s linear 0s;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        transform-style: flat;
+        transform: translate3d(-50%, -50%, 0);
+        background-color: rgba(#fff, 0.1);
+        border-radius: 0.25rem;
+        transition:
+            width 0.2s ease-in-out,
+            height 0.2s ease-in-out;
+    }
+
+    &:hover {
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        &::after {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    & > span {
+        position: relative;
+
+        &.spinner {
+            @include clear;
+            @include flex-box;
+
+            display: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            position: absolute;
+            top: calc(50% - 0.75rem);
+            left: calc(50% - 0.75rem);
+            border: 3px solid #fff;
+            border-radius: 100%;
+            animation:
+                animate-line 0.3s ease-in,
+                spinner 0.5s infinite;
+            animation-delay: 0.1s, 0.5s;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &.small {
+        width: 55px;
+        height: 25px;
+    }
+
+    &.medium {
+        width: 75px;
+        height: 30px;
+    }
+
+    &.large {
+        width: 100px;
+        height: 30px;
+    }
+
+    &.fullWidth {
+        width: 100%;
+        height: inherit;
+    }
+
+    &.active {
+        cursor: default;
+
+        & > span:first-child {
+            display: none;
+        }
+
+        & > span:last-child {
+            display: block;
+        }
+    }
+
+    &.cancel {
+        background: linear-gradient(
+            to left,
+            lighten($default-color, 10%),
+            $default-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $default-color,
+                lighten($default-color, 10%)
+            );
+        }
+    }
+
+    &.delete,
+    &.error {
+        background: linear-gradient(
+            to left,
+            lighten($error-color, 10%),
+            $error-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $error-color,
+                lighten($error-color, 10%)
+            );
+        }
+    }
+
+    &.success {
+        background: linear-gradient(
+            to left,
+            lighten($success-color, 10%),
+            $success-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $success-color,
+                lighten($success-color, 10%)
+            );
+        }
+    }
+
+    &.blue {
+        background: linear-gradient(
+            to left,
+            lighten($blue-color, 10%),
+            $blue-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $blue-color,
+                lighten($blue-color, 10%)
+            );
+        }
+    }
+
+    &.red {
+        background: linear-gradient(
+            to left,
+            lighten($red-color, 10%),
+            $red-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $red-color,
+                lighten($red-color, 10%)
+            );
+        }
+    }
+
+    &.yellow,
+    &.confirm {
+        background: linear-gradient(
+            to left,
+            lighten($warn-color, 10%),
+            $warn-color
+        );
+
+        &::before {
+            background: linear-gradient(
+                to left,
+                $warn-color,
+                lighten($warn-color, 10%)
+            );
+        }
+    }
+}
+
+@keyframes animate-line {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 1.5rem;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+    }
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

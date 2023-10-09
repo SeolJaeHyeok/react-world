@@ -2,10 +2,12 @@ import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+import sassDts from 'vite-plugin-sass-dts';
 
 export default defineConfig({
     plugins: [
         react(),
+        sassDts(),
         dts({
             // .d 파일 생성 디렉토리 지정
             include: ['lib'],
@@ -19,6 +21,9 @@ export default defineConfig({
             formats: ['es'],
             name: '@ui/atoms',
             fileName: format => `@ui-atoms.${format}.js`,
+        },
+        rollupOptions: {
+            external: ['react', 'react/jsx-runtime'],
         },
     },
 });

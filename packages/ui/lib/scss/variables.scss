@@ -1,0 +1,36 @@
+$font-size: 14px !default;
+$font-family: -apple-system, system-ui, blinkmacsystemfont, '맑은 고딕',
+    'Malgun Gothic', '돋움', dotum, helvetica, 'Apple SD Gothic Neo', sans-serif;
+$font-color: #333;
+$line-color: #ddd;
+
+$bg-main: #f0f3f5;
+$bg-main-title: #f8f9fa;
+$default-color: #777;
+$primary-color: #0e5882;
+$success-color: #21a15f;
+$error-color: #c30733;
+$warn-color: #fcb40b;
+$color-light: #fff;
+$color-dark: #333;
+
+$red-color: #d92550;
+$blue-color: #3f51b5;
+$disabled-color: #f9f9fa;
+$disabled-text-color: #b8bdc6;
+
+$box-shadow:
+    0 0.4687rem 0.1875rem rgba(4, 9, 20, 3%),
+    0 0.9375rem 0.4062rem rgba(4, 9, 20, 3%),
+    0 0.25rem 0.5312rem rgba(4, 9, 20, 5%),
+    0 0.125rem 0.1875rem rgba(4, 9, 20, 3%);
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
