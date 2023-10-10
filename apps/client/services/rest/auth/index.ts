@@ -1,5 +1,6 @@
 import { IAuthReturnData } from '@/types/auth.type';
-import { httpClient } from '..';
+import { httpClient } from '@/utils/http';
+
 export interface ILoginData {
     user: {
         email: string;
